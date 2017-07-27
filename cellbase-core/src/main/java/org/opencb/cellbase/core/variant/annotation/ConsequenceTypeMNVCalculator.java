@@ -230,8 +230,13 @@ public class ConsequenceTypeMNVCalculator extends ConsequenceTypeCalculator {
             }
             exonCounter++;
         }
-        consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(variantStartExonNumber != null
-                ? variantStartExonNumber.toString() : variantEndExonNumber.toString(), null)));
+        String exonNumberString = null;
+        if (variantStartExonNumber != null) {
+            exonNumberString = variantStartExonNumber.toString();
+        } else if (variantEndExonNumber != null) {
+            exonNumberString = variantEndExonNumber.toString();
+        }
+        consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(exonNumberString, null)));
         solveMiRNA(cdnaVariantStart, cdnaVariantEnd, junctionSolution[1]);
     }
 
@@ -304,8 +309,13 @@ public class ConsequenceTypeMNVCalculator extends ConsequenceTypeCalculator {
             exonCounter++;
         }
 
-        consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(variantStartExonNumber != null
-                ? variantStartExonNumber.toString() : variantEndExonNumber.toString(), null)));
+        String exonNumberString = null;
+        if (variantStartExonNumber != null) {
+            exonNumberString = variantStartExonNumber.toString();
+        } else if (variantEndExonNumber != null) {
+            exonNumberString = variantEndExonNumber.toString();
+        }
+        consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(exonNumberString, null)));
         // Is not intron variant (both ends fall within the same intron)
         if (!junctionSolution[1]) {
             solveExonVariantInNegativeTranscript(splicing, transcriptSequence, cdnaVariantStart, cdnaVariantEnd,
@@ -609,8 +619,13 @@ public class ConsequenceTypeMNVCalculator extends ConsequenceTypeCalculator {
             }
             exonCounter++;
         }
-        consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(variantStartExonNumber != null
-                ? variantStartExonNumber.toString() : variantEndExonNumber.toString(), null)));
+        String exonNumberString = null;
+        if (variantStartExonNumber != null) {
+            exonNumberString = variantStartExonNumber.toString();
+        } else if (variantEndExonNumber != null) {
+            exonNumberString = variantEndExonNumber.toString();
+        }
+        consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(exonNumberString, null)));
         // Is not intron variant (both ends fall within the same intron)
         if (!junctionSolution[1]) {
             solveExonVariantInPositiveTranscript(splicing, transcriptSequence, cdnaVariantStart, cdnaVariantEnd,
@@ -686,8 +701,13 @@ public class ConsequenceTypeMNVCalculator extends ConsequenceTypeCalculator {
             }
             exonCounter++;
         }
-        consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(variantStartExonNumber != null
-                ? variantStartExonNumber.toString() : variantEndExonNumber.toString(), null)));
+        String exonNumberString = null;
+        if (variantStartExonNumber != null) {
+            exonNumberString = variantStartExonNumber.toString();
+        } else if (variantEndExonNumber != null) {
+            exonNumberString = variantEndExonNumber.toString();
+        }
+        consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(exonNumberString, null)));
         solveMiRNA(cdnaVariantStart, cdnaVariantEnd, junctionSolution[1]);
     }
 
