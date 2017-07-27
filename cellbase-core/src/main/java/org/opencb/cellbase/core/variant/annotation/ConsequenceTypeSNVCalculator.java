@@ -6,10 +6,12 @@ import org.opencb.biodata.models.core.MiRNAGene;
 import org.opencb.biodata.models.core.Transcript;
 import org.opencb.biodata.models.variant.Variant;
 import org.opencb.biodata.models.variant.avro.ConsequenceType;
+import org.opencb.biodata.models.variant.avro.ExonOverlap;
 import org.opencb.biodata.models.variant.avro.ProteinVariantAnnotation;
 import org.opencb.biodata.models.core.RegulatoryFeature;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -170,7 +172,8 @@ public class ConsequenceTypeSNVCalculator extends ConsequenceTypeCalculator {
         if (variant.getStart() <= exon.getEnd() && variant.getStart() >= exon.getStart()) {  // Variant within the exon
             cdnaVariantPosition = cdnaExonEnd - (variant.getStart() - exon.getStart());
             consequenceType.setCdnaPosition(cdnaVariantPosition);
-            consequenceType.setExonNumber(exon.getExonNumber());
+            consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(Integer
+                    .toString(exon.getExonNumber()), null)));
         }
 
         int exonCounter = 1;
@@ -187,7 +190,8 @@ public class ConsequenceTypeSNVCalculator extends ConsequenceTypeCalculator {
                 if (variant.getStart() >= exon.getStart()) {  // Variant end within the exon
                     cdnaVariantPosition = cdnaExonEnd - (variant.getStart() - exon.getStart());
                     consequenceType.setCdnaPosition(cdnaVariantPosition);
-                    consequenceType.setExonNumber(exon.getExonNumber());
+                    consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(Integer
+                            .toString(exon.getExonNumber()), null)));
                 }
             } else {
                 variantAhead = false;
@@ -214,7 +218,8 @@ public class ConsequenceTypeSNVCalculator extends ConsequenceTypeCalculator {
         if (variant.getStart() <= exon.getEnd() && variant.getStart() >= exon.getStart()) {  // Variant within the exon
             cdnaVariantPosition = cdnaExonEnd - (variant.getStart() - exon.getStart());
             consequenceType.setCdnaPosition(cdnaVariantPosition);
-            consequenceType.setExonNumber(exon.getExonNumber());
+            consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(Integer
+                    .toString(exon.getExonNumber()), null)));
         }
 
         int exonCounter = 1;
@@ -236,7 +241,8 @@ public class ConsequenceTypeSNVCalculator extends ConsequenceTypeCalculator {
                 if (variant.getStart() >= exon.getStart()) {  // Variant end within the exon
                     cdnaVariantPosition = cdnaExonEnd - (variant.getStart() - exon.getStart());
                     consequenceType.setCdnaPosition(cdnaVariantPosition);
-                    consequenceType.setExonNumber(exon.getExonNumber());
+                    consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(Integer
+                            .toString(exon.getExonNumber()), null)));
                 }
             } else {
                 variantAhead = false;
@@ -393,7 +399,8 @@ public class ConsequenceTypeSNVCalculator extends ConsequenceTypeCalculator {
             if (variant.getStart() <= exon.getEnd()) {  // Variant start within the exon
                 cdnaVariantPosition = cdnaExonEnd - (exon.getEnd() - variant.getStart());
                 consequenceType.setCdnaPosition(cdnaVariantPosition);
-                consequenceType.setExonNumber(exon.getExonNumber());
+                consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(Integer
+                        .toString(exon.getExonNumber()), null)));
             }
         }
 
@@ -410,7 +417,8 @@ public class ConsequenceTypeSNVCalculator extends ConsequenceTypeCalculator {
                 if (variant.getStart() <= exon.getEnd()) {  // Variant within the exon
                     cdnaVariantPosition = cdnaExonEnd - (exon.getEnd() - variant.getStart());
                     consequenceType.setCdnaPosition(cdnaVariantPosition);
-                    consequenceType.setExonNumber(exon.getExonNumber());
+                    consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(Integer
+                            .toString(exon.getExonNumber()), null)));
                 }
             } else {
                 variantAhead = false;
@@ -465,7 +473,8 @@ public class ConsequenceTypeSNVCalculator extends ConsequenceTypeCalculator {
         if (variant.getStart() >= exon.getStart() && variant.getStart() <= exon.getEnd()) {  // Variant start within the exon
             cdnaVariantPosition = cdnaExonEnd - (exon.getEnd() - variant.getStart());
             consequenceType.setCdnaPosition(cdnaVariantPosition);
-            consequenceType.setExonNumber(exon.getExonNumber());
+            consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(Integer
+                    .toString(exon.getExonNumber()), null)));
         }
 
         int exonCounter = 1;
@@ -487,7 +496,8 @@ public class ConsequenceTypeSNVCalculator extends ConsequenceTypeCalculator {
                 if (variant.getStart() <= exon.getEnd()) {  // Variant within the exon
                     cdnaVariantPosition = cdnaExonEnd - (exon.getEnd() - variant.getStart());
                     consequenceType.setCdnaPosition(cdnaVariantPosition);
-                    consequenceType.setExonNumber(exon.getExonNumber());
+                    consequenceType.setExonOverlap(Collections.singletonList(new ExonOverlap(Integer
+                            .toString(exon.getExonNumber()), null)));
                 }
             } else {
                 variantAhead = false;
